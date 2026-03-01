@@ -21,3 +21,5 @@ export const query = (text: string, params?: any[]) => {
   }
   return pool.query(text, params);
 };
+
+export const isDbConfigured = () => !!pool;

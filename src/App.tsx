@@ -13,6 +13,9 @@ import BookViewer from './pages/BookViewer';
 import SolutionViewer from './pages/SolutionViewer';
 import SamplePapers from './pages/SamplePapers';
 import PdfViewer from './pages/PdfViewer';
+import AdminLayout from './layouts/AdminLayout';
+import Dashboard from './pages/admin/Dashboard';
+import ContentManager from './pages/admin/ContentManager';
 
 export default function App() {
   return (
@@ -31,6 +34,12 @@ export default function App() {
           
           {/* Legacy/Fallback Route */}
           <Route path="/view/:contentId" element={<PdfViewer />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="content" element={<ContentManager />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

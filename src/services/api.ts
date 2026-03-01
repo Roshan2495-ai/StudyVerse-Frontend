@@ -1,6 +1,7 @@
 import { studyData } from '../data/mockData';
 
-const API_BASE_URL = '/api';
+// Use the provided Render backend URL
+const API_BASE_URL = 'https://studyverse-backend-8wgj.onrender.com/api';
 
 // Helper to check if API is available (simple check)
 // In a real app, you might have a health check endpoint
