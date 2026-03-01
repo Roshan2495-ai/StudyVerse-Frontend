@@ -20,10 +20,11 @@ export const fetchClasses = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/classes`);
     if (!response.ok) throw new Error('API Error');
-    return await response.json();
+    const data = await response.json();
+    return Array.isArray(data) ? data : studyData;
   } catch (error) {
     console.warn('Failed to fetch from API, using mock data');
-    return studyData;
+    return Array.isArray(studyData) ? studyData : [];
   }
 };
 
@@ -43,7 +44,8 @@ export const fetchSubjects = async (classId: string) => {
   try {
     const response = await fetch(`${API_BASE_URL}/classes/${classId}/subjects`);
     if (!response.ok) throw new Error('API Error');
-    return await response.json();
+    const data = await response.json();
+    return Array.isArray(data) ? data : [];
   } catch (error) {
     const cls = studyData.find(c => c.id === classId);
     return cls?.subjects || [];
@@ -54,7 +56,8 @@ export const fetchChapters = async (subjectId: string) => {
   try {
     const response = await fetch(`${API_BASE_URL}/subjects/${subjectId}/chapters`);
     if (!response.ok) throw new Error('API Error');
-    return await response.json();
+    const data = await response.json();
+    return Array.isArray(data) ? data : [];
   } catch (error) {
     // Find subject in mock data
     for (const cls of studyData) {

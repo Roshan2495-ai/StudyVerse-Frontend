@@ -63,6 +63,12 @@ export default function Layout({ children }: LayoutProps) {
             Empowering BSE Odisha students with free, high-quality educational resources. 
             Books, solutions, and papers at your fingertips.
           </p>
+          
+          <div className="flex justify-center gap-6 mb-8 text-sm font-medium text-slate-600">
+            <a href="/" className="hover:text-blue-600 transition-colors">Home</a>
+            <a href="/admin" className="hover:text-blue-600 transition-colors">Admin Panel</a>
+          </div>
+
           <div className="text-slate-400 text-xs font-medium">
             © {new Date().getFullYear()} Studyverse. Built for Education.
           </div>
